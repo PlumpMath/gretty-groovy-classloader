@@ -1,4 +1,4 @@
-Minimal example to reproduce issue with gretty groovy classloader.
+Minimal example to reproduce issue with gretty groovy classloader on Tomcat 8.
 
 This example reproduces the issue using Spring Boot.  
 
