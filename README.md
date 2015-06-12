@@ -5,6 +5,7 @@ This example reproduces the issue using Spring Boot.
 For an example without Spring Boot, please see: https://github.com/kpage/gretty-groovy-classloader-xml
 
 Works: ./gradlew jettyRun
+
 Fails with groovy ClassCastException: ./gradlew tomcatRun
 
 Gretty also crashes and leaves tomcat running on port 8080.
