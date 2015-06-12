@@ -1,0 +1,46 @@
+// Works: ./gradlew jettyRun
+// Fails with groovy ClassCastException: ./gradlew tomcatRun
+
+// Gretty also crashes and leaves tomcat running on port 8080
+// It seems that the ClassCastException is caused by the gretty plugin modifying 
+// the groovy classes that are loaded for the web app.  Building a WAR and manually 
+// deploying to Tomcat works fine.
+
+buildscript {
+    repositories { 
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+plugins {
+    id "java"
+    id "war"
+    id "eclipse"
+    id "org.akhikhl.gretty" version "1.2.4"
+}
+
+gretty {
+    springBoot = true
+    // for some reason springBootMainClass did not autodetect and results in NullPointerException that crashes gretty
+    springBootMainClass = "com.example.Application" 
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'org.springframework.boot:spring-boot-starter-data-jpa',
+        'org.liquibase:liquibase-core:3.3.3',
+        'org.liquibase:liquibase-groovy-dsl:1.1.0',
+        'com.h2database:h2'
+    )
+}

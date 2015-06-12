@@ -1,0 +1,24 @@
+*~
+/target/
+/bin/
+.classpath
+.project
+.settings/
+/test-output/
+/src/test/resources/selenium_standalone_binaries/
+/src/test/resources/selenium_standalone_zips/
+/gradle-local.properties
+/.idea
+/*.iml
+/*.ipr
+/*.iws
+.gradle
+/logs/
+/build/
+/.tmp/
+
+#Ignore node-generated dependencies.  These will be recreated by the build.
+/node_modules/
+/npm-debug.log
+
+
