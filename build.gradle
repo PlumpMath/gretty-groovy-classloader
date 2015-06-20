@@ -23,8 +23,6 @@ plugins {
 
 gretty {
     springBoot = true
-    // for some reason springBootMainClass did not autodetect and results in NullPointerException that crashes gretty
-    springBootMainClass = "com.example.Application" 
 }
 
 task wrapper(type: Wrapper) {
